@@ -25,7 +25,7 @@ class CreateVehiculosTable extends Migration
             $table->unsignedBigInteger('idcliente');
             $table->date('fechareg');
             $table->timestamps();
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            //$table->foreign('id_cliente')->references('id')->on('clientes');
         });
     }
 

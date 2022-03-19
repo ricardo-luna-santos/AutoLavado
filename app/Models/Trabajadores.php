@@ -16,7 +16,7 @@ class Trabajadores extends Model
         'telefono',
         'correo',
         'tipo',
-        'fechareg',
+        'contrasena',
         'estatus'
     ];
 }

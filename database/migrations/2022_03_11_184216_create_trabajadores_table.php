@@ -22,6 +22,7 @@ class CreateTrabajadoresTable extends Migration
             $table->string('telefono',15);
             $table->string('correo',60);
             $table->enum('tipo',['Lavador','Cajero']);
+            $table->string('contrasena',30);
             $table->boolean('estatus');
             $table->timestamps();
         });

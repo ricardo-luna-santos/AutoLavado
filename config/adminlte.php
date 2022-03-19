@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Auto</b>Lavado',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -255,9 +255,29 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Clientes',
+            'url'  => '/clientes',
+            'icon'  => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Trabajadores',
+            'url'  => '/trabajadores',
+            'icon'  => 'fas fa-fw fa-id-card',
+        ],
+        [
+            'text' => 'Servicios',
+            'url'  => '/servicios',
+            'icon'  => 'fas fa-fw fa-cubes',
+        ],
+        [
+            'text' => 'Vehiculos',
+            'url'  => '/vehiculos',
+            'icon'  => 'fas fa-fw fa-car-side',
+        ],
+        [
+            'text' => 'Ventas',
+            'url'  => '/ventas',
+            'icon'  => 'fas fa-fw fa-dollar-sign',
         ],
         [
             'text' => 'change_password',
