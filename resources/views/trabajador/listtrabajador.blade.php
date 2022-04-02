@@ -34,11 +34,13 @@
             <td>{{$trabajador->tipo}}</td>
             <td>{{$trabajador->estatus}}</td>
             <td>
-                <form action="" methosd="post">
-                    <input type="submit" onclick="return confirm('¿Quieres borrar')" value="Borrar"/>
+                <form action="{{ url('/trabajadores/'.$trabajador->idtrabajador)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres borrar')"><i class="fas fa-fw fa-trash"></i></button>
                 </form>
                 <form action="" methosd="post">
-                    <input type="submit" onclick="return confirm('Editar Registro!')" value="Editar"/>
+                    <button type="submit" class="btn btn-warning" onclick="return confirm('Editar Registro!')"><i class="fas fa-fw fa-pen"></i></button>
                 </form>
             </td>
         </tr>

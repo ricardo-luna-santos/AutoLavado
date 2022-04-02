@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clientes;
+use App\Models\Clientes; //importar el modelo de Clientes
 
 class Cliente extends Controller
 {
@@ -14,7 +14,7 @@ class Cliente extends Controller
      */
     public function index()
     {
-        $datos['clientes']=Clientes::paginate(5);
+        $datos['clientes']=Clientes::paginate(5); //genrar el arreglo con los datos de los clientes
         return view ('clientes/listcliente',$datos);
     }
 
@@ -25,7 +25,7 @@ class Cliente extends Controller
      */
     public function create()
     {
-        return view('addclient');
+        return view ('clientes/addcliente');
         //
     }
 
@@ -38,6 +38,10 @@ class Cliente extends Controller
     public function store(Request $request)
     {
         //
+        $datosCliente=request()->except('_token');
+        Clientes::insert($datosCliente);  
+        return redirect('clientes');  
+        //return response()->json($datosCliente);
     }
 
     /**
@@ -59,7 +63,8 @@ class Cliente extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente=Clientes::findOrFail($id);
+        return view ('clientes/editcliente',compact('cliente'));
     }
 
     /**
@@ -71,7 +76,12 @@ class Cliente extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('editcliente');
+        $datosCliente=request()->except(['_token','_metod']);
+        Clientes::where('idcliente','=',$id)->update($datosCliente);
+
+        $cliente=Clientes::findOrFail($id);
+        alert ("Datos actualizados");
+        return view ('clientes/editcliente',compact('cliente'));
         //
     }
 

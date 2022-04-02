@@ -30,3 +30,4 @@ Route::resource('/servicios', App\Http\Controllers\Servicio::class);
 Route::resource('/vehiculos',App\Http\Controllers\Vehiculo::class);
 //Route::get('/ventas',[App\Http\Controllers\Venta::class, 'index']);
 Route::resource('/ventas', App\Http\Controllers\Venta::class);
+

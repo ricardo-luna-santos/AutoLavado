@@ -79,8 +79,9 @@ class Trabajador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idtrabajador)
     {
-        //
+        Trabajadores::destroy($idtrabajador);
+        return redirect('trabajadores');
     }
 }

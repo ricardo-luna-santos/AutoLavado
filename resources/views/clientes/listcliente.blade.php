@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 @section('title', 'Dashboard')
 @section('content_header')
-    <h1>Dashboard</h1> 
+    <h1>Lista de clientes</h1> 
 @stop
 @section('content')
-<h1>Lista de clientes</h1>
+    <a href="clientes/create" class="btn btn-info">Agregar Cliente<i class="fas fa-fw fa-plus"></i></a>
 <table class="table table-light">
 	<thead class="thead-ligth">
 		<tr>
@@ -37,11 +37,13 @@
                 <form action="{{ url('/clientes/'.$cliente->idcliente)}}" method="post">
                     @csrf
                     {{method_field('DELETE')}}
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres borrar')"><i class="fas fa-fw fa-trash"></i></button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres borrar')">
+                        <i class="fas fa-fw fa-trash"></i>
+                    </button>
                 </form>
-                <form action="" methosd="post">
+                <a href="{{url('/clientes/'.$cliente->idcliente.'/edit')}}">
                     <button type="submit" class="btn btn-warning" onclick="return confirm('Editar Registro!')"><i class="fas fa-fw fa-pen"></i></button>
-                </form>
+                </a>
             </td>
         </tr>
         @endforeach

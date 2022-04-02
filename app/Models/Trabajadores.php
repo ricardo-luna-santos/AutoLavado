@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trabajadores extends Model
 {
+    protected $primaryKey = 'idtrabajador';
     use HasFactory;
     protected $fillable = [
         'nombre',
