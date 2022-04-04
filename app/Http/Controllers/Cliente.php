@@ -50,7 +50,7 @@ class Cliente extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idcliente)
     {
         //
     }
@@ -61,9 +61,9 @@ class Cliente extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idcliente)
     {
-        $cliente=Clientes::findOrFail($id);
+        $cliente=Clientes::findOrFail($idcliente);
         return view ('clientes/editcliente',compact('cliente'));
     }
 
@@ -74,12 +74,12 @@ class Cliente extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idcliente)
     {
         $datosCliente=request()->except(['_token','_method']);
-        Clientes::where('idcliente','=',$id)->update($datosCliente);
+        Clientes::where('idcliente','=',$idcliente)->update($datosCliente);
 
-        $cliente=Clientes::findOrFail($id);
+        $cliente=Clientes::findOrFail($idcliente);
         //alert ("Datos actualizados");
         return view ('clientes/editcliente',compact('cliente'));
         //

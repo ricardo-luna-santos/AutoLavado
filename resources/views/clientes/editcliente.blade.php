@@ -5,42 +5,48 @@
 @stop
 @section('content')
 <div class="container">
-    <form action="{{url('/clientes/'.$cliente->id)}}" method="post">
+    <form action="{{url('/clientes/'.$cliente->idcliente)}}" method="post">
     @csrf
     {{method_field('PATCH')}}
     <div class="form-row">
         <div class="col-4">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control"  name="nombre" id="nombre" value={{$cliente->nombre}}>
+            <input type="text" class="form-control"  name="nombre" id="nombre" value="{{$cliente->nombre}}">
         </div>
         <div class="col-4">
             <label for="apaterno">Primer Apellido</label>
-            <input type="text" class="form-control"  name="apaterno" id="apaterno" value={{$cliente->apaterno}}>
+            <input type="text" class="form-control"  name="apaterno" id="apaterno" value="{{$cliente->apaterno}}">
         </div>
         <div class="col-4">
             <label for="amaterno">Segundo Apellido</label>
-            <input type="text" class="form-control"  name="amaterno" id="amaterno" value={{$cliente->amaterno}}>
+            <input type="text" class="form-control"  name="amaterno" id="amaterno" value="{{$cliente->amaterno}}">
         </div>
       </div>
     <div class="form-row">
         <div class="col-8">
             <label for="direccion">Direccion</label>
-            <input type="text" class="form-control" name="direccion" id="direccion" value={{$cliente->direccion}}>
+            <input type="text" class="form-control" name="direccion" id="direccion" value="{{$cliente->direccion}}">
         </div>
         <div class="col-4">
             <label for="telefono">Telefono</label>
-            <input type="text" class="form-control" name="telefono" id="telefono" value={{$cliente->telefono}}>
+            <input type="text" class="form-control" name="telefono" id="telefono" value="{{$cliente->telefono}}">
         </div>
     </div>
     <div class="form-row">
         <div class="col">
             <label for="correo">Correo</label>
-            <input type="text" class="form-control" name="correo" id="correo" value={{$cliente->correo}}>
+            <input type="text" class="form-control" name="correo" id="correo" value="{{$cliente->correo}}">
         </div>
         <div class="col">
             <label for="nombre">Estatus</label>
             <select class="custom-select" id="estatus" name="estatus" >
-                <option value="{{$cliente->status}}">{{$cliente->estatus}}</option>
+                <option value="{{$cliente->status}}">
+                    @if($cliente->estatus>0)         
+                        Activo       
+                    @else
+                        Inactivo  
+                    @endif
+                </option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
               </select>
