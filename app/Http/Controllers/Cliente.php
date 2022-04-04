@@ -76,11 +76,11 @@ class Cliente extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosCliente=request()->except(['_token','_metod']);
+        $datosCliente=request()->except(['_token','_method']);
         Clientes::where('idcliente','=',$id)->update($datosCliente);
 
         $cliente=Clientes::findOrFail($id);
-        alert ("Datos actualizados");
+        //alert ("Datos actualizados");
         return view ('clientes/editcliente',compact('cliente'));
         //
     }

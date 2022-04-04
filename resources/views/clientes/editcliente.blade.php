@@ -5,7 +5,7 @@
 @stop
 @section('content')
 <div class="container">
-    <form action="{{url('/clientes/'.$cliente->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('/clientes/'.$cliente->id)}}" method="post">
     @csrf
     {{method_field('PATCH')}}
     <div class="form-row">
